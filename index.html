@@ -16,6 +16,11 @@
       rel="stylesheet"
     />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
       rel="stylesheet"
     />
@@ -64,82 +69,101 @@
         <div class="movie-card">
           <button class="remove-btn">✖</button>
           <img src="assets/images/batman.png" alt="Batman Returns" />
-          <h3>Batman Returns</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-            nonummy eiusmod tempor incididunt ut...
-          </p>
+          <section class="content">
+            <h3>Batman Returns</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+              nonummy eiusmod tempor incididunt ut...
+            </p>
+          </section>
         </div>
         <div class="movie-card">
           <button class="remove-btn">✖</button>
           <img src="assets/images/wildWest.png" alt="Wild Wild West" />
-          <h3>Wild Wild West</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-            nonummy eiusmod tempor incididunt ut...
-          </p>
+          <section class="content">
+            <h3>Wild Wild West</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+              nonummy eiusmod tempor incididunt ut...
+            </p>
+          </section>
         </div>
         <div class="movie-card">
           <button class="remove-btn">✖</button>
           <img src="assets/images/spiderman.png" alt="The Amazing Spiderman" />
-          <h3>The Amazing Spiderman</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-            nonummy eiusmod tempor incididunt ut...
-          </p>
+          <section class="content">
+            <h3>The Amazing Spiderman</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+              nonummy eiusmod tempor incididunt ut...
+            </p>
+          </section>
         </div>
       </div>
     </section>
 
     <section class="contact">
-      <div>
-        <h2>How to reach us</h2>
-        <form id="contact-form" action="submit.php" method="POST">
-          <label for="first-name" class="required">First Name</label>
-          <input type="text" id="first-name" name="first_name" required />
+      <div class="contact-wrapper">
+        <div class="contact-form">
+          <h2>How to reach us</h2>
+          <p>Lorem ipsum dolor sit amet, consetetur.</p>
+          <form id="contact-form" action="submit.php" method="POST">
+            <div class="name-fields">
+              <div>
+                <label for="first-name" class="required">First Name</label>
+                <input type="text" id="first-name" name="first_name" required />
+              </div>
+              <div>
+                <label for="last-name" class="required">Last Name</label>
+                <input type="text" id="last-name" name="last_name" required />
+              </div>
+            </div>
 
-          <label for="last-name" class="required">Last Name</label>
-          <input type="text" id="last-name" name="last_name" required />
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" name="email" required />
 
-          <label for="email" class="required">Email</label>
-          <input type="email" id="email" name="email" required />
+            <label for="phone">Telephone</label>
+            <input type="tel" id="phone" name="phone" />
 
-          <label for="phone">Telephone</label>
-          <input type="tel" id="phone" name="phone" />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4"></textarea>
 
-          <label for="message" class="required">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+            <p class="note">*required fields</p>
 
-          <label>
-            <input type="checkbox" name="terms" required /> I agree to the Terms
-            & Conditions
-          </label>
+            <label class="checkbox">
+              <input type="checkbox" name="terms" required />
+              I agree to the <a href="#">Terms & Conditions</a>
+            </label>
 
-          <button type="submit">SUBMIT</button>
-        </form>
+            <button type="submit">SUBMIT</button>
+          </form>
+        </div>
+
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428490332842!2d-3.691978684594155!3d40.42235227936253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42289e8f5d9d5f%3A0x3e6f7b8c8b7b8d8!2sPlaza%20de%20Espa%C3%B1a%2C%2028040%20Madrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1634567891234"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
       </div>
-      <iframe
-        class="map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.428490332842!2d-3.691978684594155!3d40.42235227936253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42289e8f5d9d5f%3A0x3e6f7b8c8b7b8d8!2sPlaza%20de%20Espa%C3%B1a%2C%2028040%20Madrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1634567891234"
-        allowfullscreen=""
-        loading="lazy"
-      ></iframe>
     </section>
-
     <footer>
-      <div>
-        <p>THE GROUP</p>
-        <p>Calle de Madrid, 1</p>
-        <p>28027 Madrid</p>
-        <p>Spain</p>
+      <div class="footer-top">
+        <div class="footer-address">
+          <p>THE GROUP</p>
+          <p>Calle de Madrid, 1</p>
+          <p>28027 Madrid</p>
+          <p>Spain</p>
+        </div>
+        <div class="footer-socials">
+          <p>FOLLOW US</p>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <div>
-        <p>FOLLOW US</p>
-        <a href="#">🐦</a>
-        <a href="#">📺</a>
-      </div>
-      <div>
-        <p>Copyright © 2025. Hot is. All rights reserved.</p>
+      <hr />
+      <div class="footer-bottom">
+        <p>Copyright © 2025.IT Hote is. All rights reserved.</p>
         <p>Photos by Felix Mooneeram & Sergey Kuznecov on Unsplash</p>
       </div>
     </footer>

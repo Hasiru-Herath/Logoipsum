@@ -16,6 +16,10 @@ header {
     align-items: center;
     padding: 1rem;
     background-color: #000;
+    padding-left: 115px;
+    padding-right: 115px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .logo {
@@ -81,7 +85,7 @@ nav a {
 
 .site-intro {
     background-color: #0F0F0F;
-    padding: 2rem 1rem;
+    padding: 66px 104px 66px 104px;
 }
 
 .site-intro h1 {
@@ -104,77 +108,79 @@ nav a {
     padding-right: 114px;
     padding-bottom: 51px;
     padding-top: 51px;
+
 }
 
 .movie-grid h2 {
-    font-size:36.57px;
+    font-size: 36.57px;
     font-family: 'DINAlternate-Bold', sans-serif;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .favorites-section {
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .favorites-section h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 .search-bar {
-  display: flex;
-  align-items: center;
-  border: 1px solid #fff;
-  border-radius: 6px;
-  padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 8px 12px;
 }
 
 .search-bar .search-icon {
-  color: white;
-  font-size: 18px;
-  margin-right: 8px;
+    color: white;
+    font-size: 18px;
+    margin-right: 8px;
 }
 
 .search-bar input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-size: 16px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  line-height: 150%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 150%;
 }
 
 .search-bar input::placeholder {
-  color: #aaa;
+    color: #aaa;
 }
 
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center; 
-  padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 50px;
+    height: 770px;
 }
 
-.grid > :nth-child(1) {
-  justify-self: start;
+.grid> :nth-child(1) {
+    justify-self: start;
 }
 
-.grid > :nth-child(2) {
-  justify-self: center;
+.grid> :nth-child(2) {
+    justify-self: center;
 }
 
-.grid > :nth-child(3) {
-  justify-self: end;
+.grid> :nth-child(3) {
+    justify-self: end;
 }
 
 
@@ -182,18 +188,17 @@ nav a {
     position: relative;
     background: #333;
     width: 427px;
-    height: 770px;
+    height: 100%;
     border-radius: 5px;
 }
 
 .movie-card img {
     width: 100%;
-    height: 770px;
-    margin-bottom: 0.5rem;
+    height: 606px;
 }
 
 .movie-card h3 {
-    font-size:32px;
+    font-size: 32px;
     font-weight: 400;
     font-family: 'DINAlternate-Bold', sans-serif;
     margin-bottom: 0.5rem;
@@ -206,79 +211,152 @@ nav a {
     margin-bottom: 0.5rem;
 }
 
+.content {
+    background-color: #3C3C3C;
+    padding: 12px 26px 12px 26px;
+}
+
 .remove-btn {
     position: absolute;
     top: 5px;
     right: 5px;
-    background: #fff;
-    border: none;
+    width: 50px;
+    height: 50px;
+    background: #1D1D1DE6;
     font-size: 1rem;
+    color: #aaa;
     cursor: pointer;
 }
 
 /* Contact Section */
 .contact {
-    padding: 2rem 1rem;
+    background-color: #000;
+    color: #fff;
+    padding: 3rem 5rem;
+    justify-content: center;
 }
 
-.contact h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: flex-start;
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex: 1;
+    min-width: 300px;
     max-width: 500px;
+}
+
+.contact-form h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form p {
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.name-fields {
+    display: flex;
+    gap: 1rem;
     margin-bottom: 1rem;
+}
+
+.name-fields div {
+    flex: 1;
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     background: #333;
     border: none;
     color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 6px;
 }
 
 .contact-form .required::after {
-    content: "*";
+    content: " *";
     color: red;
+}
+
+.contact-form .checkbox {
+    display:block;
+    align-items: start;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .checkbox a {
+    color: #fff;
+    text-decoration: underline;
 }
 
 .contact-form button {
     background: #f1c40f;
-    padding: 0.75rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.contact-form .note {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: -0.5rem;
 }
 
 .map {
-    width: 100%;
-    height: 300px;
+    flex: 1;
+    min-width: 773px;
+    height: 588px;
+    border: none;
+    border-radius: 8px;
 }
 
-/* Footer */
+
+
 footer {
-    padding: 1rem;
-    background: #000;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
+  padding: 51px 114px;
+  background: #1D1D1D;
+  display: flex;
+  flex-direction: column; 
+  gap: 2rem;
+  color: white;
+}
+
+footer > div {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+}
+
+footer p {
+  margin: 0.2rem 0;
 }
 
 footer a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 0.5rem;
 }
+
+
 
 /* Responsive */
 @media (min-width: 768px) {
