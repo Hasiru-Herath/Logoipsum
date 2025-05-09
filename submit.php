@@ -60,12 +60,12 @@ $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
 
 try {
     // Admin email
-    $admin_email = "hasiruherath.13@gmail.com";
+    $admin_email = "dumidu.kodithuwakku@ebeyonds.com";
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'hasiruherath.13@gmail.com'; // Your Gmail address
-    $mail->Password = ''; // Your App Password
+    $mail->Username = 'hasiruherath.13@gmail.com'; 
+    $mail->Password = ''; 
     $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
@@ -81,7 +81,6 @@ try {
                   "Please follow up with the user as needed.";
     $mail->send();
 
-    // Auto-response email to user
     $mail->clearAddresses();
     $mail->addAddress($data['email']);
     $mail->Subject = "Thank You for Your Submission - Logipsum";
@@ -97,7 +96,6 @@ try {
                   "Best regards,\nThe Logipsum Team";
     $mail->send();
 } catch (Exception $e) {
-    // Log the error instead of showing it to the user
     file_put_contents('email_error.log', "Email sending failed: " . $e->getMessage());
 }
 

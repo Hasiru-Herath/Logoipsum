@@ -19,7 +19,6 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-// Movie Search and Grid
 const searchInput = document.getElementById('search-input');
 const movieGrid = document.getElementById('movie-grid');
 

@@ -130,12 +130,13 @@
 
             <p class="note">*required fields</p>
 
+            <input class="checkbox_input" type="checkbox" name="terms" required />
+
             <label class="checkbox">
-              <input type="checkbox" name="terms" required />
               I agree to the <a href="#">Terms & Conditions</a>
             </label>
 
-            <button type="submit">SUBMIT</button>
+            <button type="submit" class="submit-btn">SUBMIT</button>
           </form>
         </div>
 
