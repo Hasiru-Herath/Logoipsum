@@ -167,6 +167,7 @@ nav a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    justify-items: space-between;
     padding: 50px;
     height: 770px;
 }

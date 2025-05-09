@@ -1,6 +1,9 @@
 <?php
 header('Content-Type: application/json');
 
+// Include Composer's autoloader
+require 'vendor/autoload.php';
+
 // Validate form data
 $required_fields = ['first_name', 'last_name', 'email', 'message', 'terms'];
 $errors = [];
@@ -36,7 +39,7 @@ $data = [
 ];
 
 // Save to JSON file
-$json_file = 'submissions.json';
+$json_file = 'data/submissions.json';
 if (file_exists($json_file)) {
     $existing_data = json_decode(file_get_contents($json_file), true);
 } else {
@@ -46,20 +49,57 @@ if (file_exists($json_file)) {
 $existing_data[] = $data;
 file_put_contents($json_file, json_encode($existing_data, JSON_PRETTY_PRINT));
 
-// Send emails
-$admin_email = "admin@example.com";
-$user_email = $data['email'];
-$subject_user = "Thank You for Your Submission";
-$subject_admin = "New Form Submission";
+// Send emails using PHPMailer
+require 'E:/Logoipsum/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'E:/Logoipsum/vendor/phpmailer/phpmailer/src/Exception.php';
+require 'E:/Logoipsum/vendor/phpmailer/phpmailer/src/SMTP.php';
 
-$message_user = "Dear {$data['first_name']},\n\nThank you for reaching out to us! We have received your submission and will get back to you soon.\n\nBest regards,\nLogipsum Team";
-$message_admin = "New submission received:\n\n" . print_r($data, true);
 
-$headers = "From: no-reply@logipsum.com\r\n";
 
-mail($user_email, $subject_user, $message_user, $headers);
-mail($admin_email, $subject_admin, $message_admin, $headers);
+$mail = new \PHPMailer\PHPMailer\PHPMailer(true);
 
-// Send response
+try {
+    // Admin email
+    $admin_email = "hasiruherath.13@gmail.com";
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'hasiruherath.13@gmail.com'; // Your Gmail address
+    $mail->Password = 'vqug ljoo naik qnmr'; // Your App Password
+    $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+
+    $mail->setFrom('no-reply@logipsum.com', 'Logipsum');
+    $mail->addAddress($admin_email);
+    $mail->Subject = "New Form Submission - Logipsum";
+    $mail->Body = "A new form submission has been received on " . $data['submitted_at'] . ":\n\n" .
+                  "First Name: {$data['first_name']}\n" .
+                  "Last Name: {$data['last_name']}\n" .
+                  "Email: {$data['email']}\n" .
+                  "Phone: " . ($data['phone'] ?: 'Not provided') . "\n" .
+                  "Message: {$data['message']}\n\n" .
+                  "Please follow up with the user as needed.";
+    $mail->send();
+
+    // Auto-response email to user
+    $mail->clearAddresses();
+    $mail->addAddress($data['email']);
+    $mail->Subject = "Thank You for Your Submission - Logipsum";
+    $mail->Body = "Dear {$data['first_name']} {$data['last_name']},\n\n" .
+                  "Thank you for reaching out to us at Logipsum! We have successfully received your submission.\n\n" .
+                  "Here are the details we received:\n" .
+                  "First Name: {$data['first_name']}\n" .
+                  "Last Name: {$data['last_name']}\n" .
+                  "Email: {$data['email']}\n" .
+                  "Phone: " . ($data['phone'] ?: 'Not provided') . "\n" .
+                  "Message: {$data['message']}\n\n" .
+                  "We will review your message and get back to you as soon as possible.\n\n" .
+                  "Best regards,\nThe Logipsum Team";
+    $mail->send();
+} catch (Exception $e) {
+    // Log the error instead of showing it to the user
+    file_put_contents('email_error.log', "Email sending failed: " . $e->getMessage());
+}
+
 echo json_encode(['message' => 'Form submitted successfully']);
 ?>
