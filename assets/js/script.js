@@ -1,6 +1,7 @@
 // Hamburger Menu
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
+const API_KEY='';
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });

@@ -165,16 +165,28 @@ nav a {
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    overflow-x: auto;
     gap: 2rem;
     padding-top: 50px;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
 }
+
+.grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
 
 .movie-card {
     position: relative;
+    flex: 0 0 calc(33.333% - 1.33rem);
     background: #333;
-    width: 100%;
     border-radius: 5px;
 }
 
@@ -369,4 +381,16 @@ footer a {
     src: url('../fonts/DINAlternate-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@media (max-width: 992px) {
+    .movie-card {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .movie-card {
+        flex: 0 0 100%;
+    }
 }
